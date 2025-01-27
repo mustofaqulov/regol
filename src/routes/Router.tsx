@@ -1,14 +1,14 @@
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, useNavigate} from "react-router-dom";
 import {Header} from "../components/header/header.tsx";
 import {Slider} from "../components/slider/slider.tsx";
 import {axiosInstance} from "../service/axios.ts";
-import {ProductCard} from "../components/productCard/productCard.tsx";
+import {ProductCardPage} from "../components/productCard/productCard.tsx";
 import {useEffect, useState} from "react";
 import {Product} from "../components/productCard/productCard.tsx";
 
 export const Router = () => {
     const [products, setProducts] = useState<Product[]>([]);
-    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -24,11 +24,7 @@ export const Router = () => {
     }, []);
 
     const handleProductSelect = (product: Product) => {
-        setSelectedProduct(product);
-    };
-
-    const handleBack = () => {
-        setSelectedProduct(null);
+        navigate(`/product/${product._id}`);
     };
 
     return (
@@ -38,17 +34,25 @@ export const Router = () => {
                 <Route
                     path="/"
                     element={
-                        selectedProduct ? (
-                            <ProductCard productCard={selectedProduct} onBack={handleBack} />
-                        ) : (
-                            <Slider
-                                productSlide={products}
-                                onProductSelect={handleProductSelect}
-                            />
-                        )
+                        <Slider
+                            productSlide={products}
+                            onProductSelect={handleProductSelect}
+                        />
                     }
                 />
-                <Route path="/home" element={<Slider productSlide={products} onProductSelect={handleProductSelect} />} />
+                <Route
+                    path="/home"
+                    element={
+                        <Slider
+                            productSlide={products}
+                            onProductSelect={handleProductSelect}
+                        />
+                    }
+                />
+                <Route
+                    path="/product/:id"
+                    element={<ProductCardPage productCard={products[0]} onBack={() => navigate("/home")} />}
+                />
             </Routes>
         </>
     );
