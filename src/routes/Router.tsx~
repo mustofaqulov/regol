@@ -41,15 +41,6 @@ export const Router = () => {
                     }
                 />
                 <Route
-                    path="/products"
-                    element={
-                        <Slider
-                            productSlide={products}
-                            onProductSelect={handleProductSelect}
-                        />
-                    }
-                />
-                <Route
                     path="/home"
                     element={
                         <Slider

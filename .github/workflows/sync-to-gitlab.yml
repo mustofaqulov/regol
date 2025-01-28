@@ -1,0 +1,20 @@
+name: Sync to GitLab
+
+on:
+  push:
+    branches:
+      - main  # Asosiy branchni kuzatadi
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository'ni klonlash
+        uses: actions/checkout@v2
+
+      - name: GitLab'ga push qilish
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          git remote add gitlab https://gitlab.com/mustafoqulov/regol-oil.git
+          git push -u gitlab main
