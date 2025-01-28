@@ -7,9 +7,10 @@ import 'swiper/css/pagination';
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
 
 import { Product } from "../productCard/productCard.tsx";
+import {useNavigate} from "react-router-dom";
 
-export const SlideContainer =({ products, onProductSelect,}: {products: Product[]; onProductSelect: (product: Product) => void;
-}) => {
+export const SlideContainer =({ products}: {products: Product[] }) => {
+    const navigate = useNavigate()
     return (
         <div className="w-full p-4 min-h-[700px] bg-gradient-to-b from-gray-900 via-black to-gray-900 flex items-center justify-center py-12">
             <Swiper
@@ -20,10 +21,12 @@ export const SlideContainer =({ products, onProductSelect,}: {products: Product[
                     delay: 3000,
                     disableOnInteraction: false,
                 }}
-                loop
+                // loop={true}
                 breakpoints={{
                     640: { slidesPerView: 2 },
+                    768: { slidesPerView: 2 },
                     1024: { slidesPerView: 3 },
+                    1280: { slidesPerView: 2 },
                 }}
                 coverflowEffect={{
                     rotate: 30,
@@ -37,15 +40,14 @@ export const SlideContainer =({ products, onProductSelect,}: {products: Product[
                 className="w-full max-w-[1200px]"
             >
                 {products?.map((product: Product) => {
-                        console.log(product.image)
                     return (<SwiperSlide
                                     key={product._id}
-                                className="flex flex-col items-center justify-center text-center bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-lg p-6 md:p-8 lg:p-10 transform transition-transform duration-300 hover:scale-105"
+                                className="flex w-[500px] flex-col items-center justify-center text-center bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-lg p-6 md:p-8 lg:p-10 transform transition-transform duration-300"
                             >
                                 <img
                                     src={product.image}
                                     alt={product.title}
-                                    className="w-[200px] mx-auto sm:w-[250px] md:w-[300px] h-auto rounded-xl mb-4 animate-floating"
+                                    className="w-[600px] mx-auto sm:w-[250px] md:w-[500px] h-auto rounded-xl mb-4 animate-floating"
                                 />
                                 <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-4">
                                     {product.title}
@@ -55,7 +57,7 @@ export const SlideContainer =({ products, onProductSelect,}: {products: Product[
                                 </p>
                                 <button
                                     className="mt-4 cursor-pointer bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 md:px-8 md:py-3 rounded-full transition-all"
-                                    onClick={() => onProductSelect(product)}
+                                    onClick={() => navigate(`/product/${product._id}`)}
                                 >
                                     Learn more
                                 </button>
@@ -64,14 +66,14 @@ export const SlideContainer =({ products, onProductSelect,}: {products: Product[
                 )}
             </Swiper>
             <style>{`
-        @keyframes floating {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-floating {
-          animation: floating 3s ease-in-out infinite;
-        }
-      `}</style>
+                @keyframes floating {
+                  0%, 100% { transform: translateY(0); }
+                  50% { transform: translateY(-10px); }
+                }
+                .animate-floating {
+                  animation: floating 3s ease-in-out infinite;
+                }
+              `}</style>
         </div>
     );
 };
