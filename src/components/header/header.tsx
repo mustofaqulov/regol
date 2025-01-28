@@ -1,19 +1,22 @@
 import Logo from "../../assets/regal_logo.png";
-
-import { NavLink } from "react-router";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-lg py-4 sticky top-0 z-50">
             <div className="flex items-center justify-between w-full max-w-[1200px] mx-auto px-4">
+                {/* Logo */}
                 <div className="flex items-center gap-2">
                     <NavLink to="/home" className="flex items-center">
-                        <img src={Logo} alt="Logo" className=" h-16" />
+                        <img src={Logo} alt="Logo" className="h-10 sm:h-14 md:h-16" />
                     </NavLink>
                 </div>
 
-                {/* Search Bar */}
-                <div className="relative w-1/3">
+                {/* Search Bar (hidden on small screens) */}
+                <div className="relative hidden lg:block w-1/3">
                     <input
                         type="text"
                         placeholder="Search products, services..."
@@ -24,7 +27,7 @@ export const Header = () => {
                     </button>
                 </div>
 
-                {/* Navigation Links */}
+                {/* Desktop Navigation */}
                 <nav className="hidden md:flex gap-6 items-center">
                     <NavLink
                         to="/company"
@@ -60,7 +63,10 @@ export const Header = () => {
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center">
-                    <button className="text-white focus:outline-none">
+                    <button
+                        className="text-white focus:outline-none"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-6 w-6"
@@ -78,6 +84,53 @@ export const Header = () => {
                     </button>
                 </div>
             </div>
+
+            {/* Mobile Navigation */}
+            {isMenuOpen && (
+                <nav className="md:hidden bg-gray-900 text-gray-200 w-full">
+                    <ul className="flex flex-col gap-4 py-4 px-6">
+                        <li>
+                            <NavLink
+                                to="/company"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? "text-blue-400 text-base font-medium"
+                                        : "text-gray-200 text-base font-medium hover:text-blue-400"
+                                }
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Company
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/products"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? "text-blue-400 text-base font-medium"
+                                        : "text-gray-200 text-base font-medium hover:text-blue-400"
+                                }
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Products
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/contact"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? "text-blue-400 text-base font-medium"
+                                        : "text-gray-200 text-base font-medium hover:text-blue-400"
+                                }
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Contact
+                            </NavLink>
+                        </li>
+                    </ul>
+                </nav>
+            )}
         </header>
     );
 };

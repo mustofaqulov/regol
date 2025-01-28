@@ -11,7 +11,7 @@ import { Product } from "../productCard/productCard.tsx";
 export const SlideContainer =({ products, onProductSelect,}: {products: Product[]; onProductSelect: (product: Product) => void;
 }) => {
     return (
-        <div className="w-full min-h-[700px] bg-gradient-to-b from-gray-900 via-black to-gray-900 flex items-center justify-center py-12">
+        <div className="w-full p-4 min-h-[700px] bg-gradient-to-b from-gray-900 via-black to-gray-900 flex items-center justify-center py-12">
             <Swiper
                 effect="coverflow"
                 centeredSlides
@@ -45,7 +45,7 @@ export const SlideContainer =({ products, onProductSelect,}: {products: Product[
                                 <img
                                     src={product.image}
                                     alt={product.title}
-                                    className="w-[200px] sm:w-[250px] md:w-[300px] h-auto rounded-xl mb-4 animate-floating"
+                                    className="w-[200px] mx-auto sm:w-[250px] md:w-[300px] h-auto rounded-xl mb-4 animate-floating"
                                 />
                                 <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-4">
                                     {product.title}
