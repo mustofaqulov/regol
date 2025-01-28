@@ -21,7 +21,7 @@ export const SlideContainer =({ products}: {products: Product[] }) => {
                     delay: 3000,
                     disableOnInteraction: false,
                 }}
-                // loop={true}
+                loop={true}
                 breakpoints={{
                     640: { slidesPerView: 2 },
                     768: { slidesPerView: 2 },
