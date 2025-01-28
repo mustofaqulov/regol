@@ -18,7 +18,7 @@ export type Product = {
     packaging: string;
 };
 
-export const ProductCardPage = () => {
+export const ProductCardPage = ({ onBack }: {onBack: (product: []) => void }) => {
     const [productCard, setProductCard] = useState<Product>()
     const navigate = useNavigate()
 

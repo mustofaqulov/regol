@@ -1,4 +1,4 @@
-import {Routes, Route, useNavigate} from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import {Header} from "../components/header/header.tsx";
 import {Slider} from "../components/slider/slider.tsx";
 import {axiosInstance} from "../service/axios.ts";
@@ -8,7 +8,6 @@ import {Product} from "../components/productCard/productCard.tsx";
 
 export const Router = () => {
     const [products, setProducts] = useState<Product[]>([]);
-    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -23,9 +22,6 @@ export const Router = () => {
         fetchProducts();
     }, []);
 
-    const handleProductSelect = (product: Product) => {
-        navigate(`/product/${product._id}`);
-    };
 
     return (
         <>
@@ -36,7 +32,6 @@ export const Router = () => {
                     element={
                         <Slider
                             productSlide={products}
-                            onProductSelect={handleProductSelect}
                         />
                     }
                 />
@@ -45,7 +40,6 @@ export const Router = () => {
                     element={
                         <Slider
                             productSlide={products}
-                            onProductSelect={handleProductSelect}
                         />
                     }
                 />
@@ -54,13 +48,12 @@ export const Router = () => {
                     element={
                         <Slider
                             productSlide={products}
-                            onProductSelect={handleProductSelect}
                         />
                     }
                 />
                 <Route
                     path="/product/:id"
-                    element={<ProductCardPage productCard={products[0]} onBack={() => navigate("/home")} />}
+                    element={<ProductCardPage />}
                 />
             </Routes>
         </>
