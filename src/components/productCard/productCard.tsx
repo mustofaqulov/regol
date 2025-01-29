@@ -1,6 +1,7 @@
 import {useParams, useNavigate} from "react-router";
 import {axiosInstance} from "../../service/axios.ts";
 import {useEffect, useState} from "react";
+import {ProductCardSkeleton} from "./peoductCardSkleton.tsx";
 
 export type Product = {
     _id: string;
@@ -31,9 +32,8 @@ export const ProductCardPage = () => {
             })
     }, [])
 
-    console.log(productCard)
-
     return (
+        productCard === undefined ? <ProductCardSkeleton /> :
         <div className="min-h-screen w-full bg-gray-900 text-white p-8">
             <div className="max-w-[1110px] flex flex-col mx-auto bg-gray-800 p-4 rounded-lg shadow-lg">
                 <div className="flex flex-col items-center md:items-start gap-6">
@@ -44,7 +44,7 @@ export const ProductCardPage = () => {
                     />
                     <div className="flex-1">
                         <h1 className="text-3xl font-bold mb-4 border-b border-gray-600 pb-2">
-                            {productCard?.title}
+                            {productCard?.name}
                         </h1>
                         <p className="text-gray-400 mb-6 leading-relaxed">{productCard?.description}</p>
 
