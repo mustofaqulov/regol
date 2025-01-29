@@ -5,11 +5,9 @@ export const Slider = ({ productSlide }: { productSlide: Product[]}) => {
 
     return (
         <>
-            <div className='w-full'>
-                <SlideContainer
-                    products={productSlide}
-                />
-            </div>
+            <SlideContainer
+                products={productSlide}
+            />
         </>
     );
 };
