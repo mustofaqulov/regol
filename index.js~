@@ -1,0 +1,9 @@
+// slice, substr, substring, toLowerCase, toUpperCase, indexOf, includes, toString, charAt
+
+// slice - copy, argumentiga - index'larni qabul qiladi, 1-arg 2-arg katta ishlamaydi.
+// substr - copy, 1-arg index, 2-arg - length nechta copy qilishi
+// substring -
+
+
+let str = 'hello'
+console.log(str.charAt(1))
