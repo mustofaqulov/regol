@@ -42,8 +42,8 @@ const ProductBanners = () => {
         }}
         className="relative"
         breakpoints={{
-          640: { slidesPerView: 1 }, // Small screens
-          1024: { slidesPerView: 2.3 }, // Larger screens (optional multi-slide if needed later)
+          640: { slidesPerView: 1 },
+          1024: { slidesPerView: 2.3 },
         }}>
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
