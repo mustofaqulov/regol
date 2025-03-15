@@ -8,14 +8,12 @@ export const Header = () => {
   return (
     <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-lg py-4 sticky top-0 z-50">
       <div className="flex items-center justify-between w-full max-w-[1200px] mx-auto px-4">
-        {/* Logo */}
         <div className="flex items-center gap-2">
           <NavLink to="/home" className="flex items-center">
             <img src={Logo} alt="Logo" className="h-10 sm:h-12 md:h-14" />
           </NavLink>
         </div>
 
-        {/* Search Bar (hidden on small screens) */}
         <div className="relative hidden lg:block w-1/3">
           <input
             type="text"
@@ -24,7 +22,6 @@ export const Header = () => {
           />
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
           <button
             className="text-white focus:outline-none"
@@ -42,7 +39,6 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {isMenuOpen && (
         <nav className="md:hidden bg-gray-900 text-gray-200 w-full">
           <ul className="flex flex-col gap-4 py-4 px-6">
