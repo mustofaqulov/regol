@@ -1,11 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-// Import the images (replace these with the actual paths to your images)
+
 import banner1 from '../../assets/banner1.png';
 import banner2 from '../../assets/banner2.png';
 import banner3 from '../../assets/banner3.png';
@@ -14,7 +13,6 @@ import banner5 from '../../assets/banner5.png';
 import banner6 from '../../assets/banner6.png';
 
 const ProductBanners = () => {
-  // Array of slide images
   const slides = [banner1, banner2, banner3, banner4, banner5, banner6];
 
   return (
