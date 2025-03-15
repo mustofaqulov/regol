@@ -5,6 +5,7 @@ import { axiosInstance } from '../service/axios.ts';
 import { ProductCardPage } from '../components/productCard/productCard.tsx';
 import { useEffect, useState } from 'react';
 import { Product } from '../components/productCard/productCard.tsx';
+import ProductBanners from '../components/productBanners/productBanners.tsx';
 
 export const Router = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -25,10 +26,12 @@ export const Router = () => {
   return (
     <>
       <Header />
+      <ProductBanners />
       <Routes>
         <Route path="/" element={<Slider productSlide={products} />} />
         <Route path="/products" element={<Slider productSlide={products} />} />
         <Route path="/home" element={<Slider productSlide={products} />} />
+        <Route path="/banners" element={<ProductBanners />} />
         <Route path="/product/:id" element={<ProductCardPage />} />
       </Routes>
     </>

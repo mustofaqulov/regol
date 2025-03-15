@@ -38,9 +38,9 @@ export const SlideContainer = ({ products }: { products: Product[] }) => {
           modifier: 1,
           slideShadows: true,
         }}
-        pagination={{ clickable: true }}
+        // pagination={{ clickable: true }}
         modules={[EffectCoverflow, Pagination, Autoplay]}
-        className="w-full max-w-[1800px] rounded-2xl">
+        className="w-full rounded-2xl">
         {products?.map((product: Product) => {
           return (
             <SwiperSlide
