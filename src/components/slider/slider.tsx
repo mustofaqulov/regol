@@ -10,3 +10,4 @@ export const Slider = ({ productSlide }: { productSlide: Product[] }) => {
     </>
   );
 };
+    
