@@ -5,5 +5,5 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  background-color: #000000;
+  background: linear-gradient(to right, #0c1629, #2f2e3c, #242c37);
 }

@@ -1,0 +1,20 @@
+{
+  "name": "Regol Oil",
+  "short_name": "Regol",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1F2937",
+  "theme_color": "#1F2937",
+  "icons": [
+    {
+      "src": "/src/assets/regol_logo_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/regol_logo_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

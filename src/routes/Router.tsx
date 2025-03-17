@@ -1,9 +1,10 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Suspense, lazy, useEffect, useState, ReactNode } from 'react';
 import { axiosInstance } from '../service/axios.ts';
+import NotFound from '../pages/not-found.tsx';
 
 export interface Product {
-  id: string | number;
+  _id: string | number;
   name: string;
   price?: number;
   description?: string;
@@ -151,7 +152,7 @@ export const Router: React.FC = () => {
               </MainLayout>
             }
           />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       )}
     </Suspense>

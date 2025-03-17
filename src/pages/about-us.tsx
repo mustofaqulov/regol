@@ -1,9 +1,8 @@
-import Logo from '../assets/regal_logo.png';
+import Logo from '../assets/regol_logo.png';
 
 const AboutUs: React.FC = () => {
   return (
     <section className="w-full bg-gradient-to-b from-gray-900 via-black to-gray-900 text-gray-200">
-      {/* Hero Section with Blur Effect */}
       <div className="relative w-full py-16 overflow-hidden">
         <div className="absolute inset-0 bg-blue-900 opacity-10"></div>
         <div className="absolute inset-0 backdrop-blur-sm"></div>
@@ -44,7 +43,6 @@ const AboutUs: React.FC = () => {
             <div className="w-full h-full bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl shadow-lg p-1">
               <div className="w-full h-full bg-gradient-to-b from-gray-900 to-gray-800 rounded-xl flex items-center justify-center">
                 <div className="p-8 animate-floating">
-                  {/* Placeholder for image - replace with actual product image */}
                   <div className="w-64 h-64 bg-gradient-to-r from-blue-900 to-blue-600 rounded-full flex items-center justify-center">
                     <img className="w-32" src={Logo} alt="" />
                   </div>
@@ -54,7 +52,6 @@ const AboutUs: React.FC = () => {
           </div>
         </div>
 
-        {/* Why Choose REGOL */}
         <div className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
             Why Choose REGOL?
@@ -110,7 +107,6 @@ const AboutUs: React.FC = () => {
           </div>
         </div>
 
-        {/* Made for the Future */}
         <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-2xl shadow-lg p-8 mb-16">
           <h2 className="text-2xl font-bold text-white mb-4">Made for the Future</h2>
           <p className="text-gray-300 mb-6">

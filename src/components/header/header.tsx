@@ -1,4 +1,4 @@
-import Logo from '../../assets/regal_logo.png';
+import Logo from '../../assets/regol_logo.png';
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
@@ -6,33 +6,17 @@ import { NavLink, useLocation } from 'react-router-dom';
 interface NavItem {
   path: string;
   label: string;
-  icon?: string; // Optional icon for nav items
-}
-
-// Sample user type (expand as needed)
-interface User {
-  name: string;
-  avatar?: string;
+  icon?: string;
 }
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem('theme') === 'dark');
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
 
-  // Sample user (replace with actual auth logic)
-  const user: User | null = { name: 'John Doe', avatar: 'https://via.placeholder.com/40' };
-
-  // Close mobile menu on route change and sync theme
   useEffect(() => {
     setIsMenuOpen(false);
-    setIsProfileOpen(false);
-    const theme = isDarkMode ? 'dark' : 'light';
-    localStorage.setItem('theme', theme);
-    document.documentElement.classList.toggle('dark', isDarkMode);
-  }, [location, isDarkMode]);
+  }, [location]);
 
   const navItems: NavItem[] = [
     { path: '/about', label: 'About', icon: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z' },
@@ -51,7 +35,6 @@ export const Header: React.FC = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // Implement search navigation or API call
       console.log('Searching for:', searchQuery);
       setSearchQuery('');
     }
@@ -59,25 +42,20 @@ export const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-md shadow-lg transition-all duration-300 dark:bg-gray-800/95">
-      {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 opacity-95 pointer-events-none"></div>
 
-      {/* Main Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4">
-          {/* Logo Section */}
           <NavLink to="/home" className="flex items-center group" aria-label="Home">
             <img
               src={Logo}
-              alt="Regal Logo"
+              alt="Regol Logo"
               className="h-10 sm:h-12 md:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
               loading="lazy"
             />
           </NavLink>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 flex-1 justify-end">
-            {/* Search Bar */}
             <form onSubmit={handleSearch} className="relative max-w-xs w-full">
               <input
                 type="text"
@@ -106,7 +84,6 @@ export const Header: React.FC = () => {
               </button>
             </form>
 
-            {/* Nav Items */}
             <nav className="flex items-center gap-6">
               {navItems.map((item) => (
                 <NavLink
@@ -136,7 +113,6 @@ export const Header: React.FC = () => {
             </nav>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2 rounded-lg hover:bg-gray-800/50 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -157,7 +133,6 @@ export const Header: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <nav className="md:hidden animate-slide-down bg-gray-900/95 backdrop-blur-md border-t border-gray-800/50 dark:bg-gray-800/95">
             <div className="px-4 py-6 space-y-4">
@@ -222,7 +197,6 @@ export const Header: React.FC = () => {
         )}
       </div>
 
-      {/* Global Styles */}
       <style>{`
         @keyframes slide-down {
           from {

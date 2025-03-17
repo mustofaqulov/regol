@@ -1,14 +1,12 @@
 import React from 'react';
-import Logo from '../../assets/regal_logo.png';
+import Logo from '../../assets/regol_logo.png';
 import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-gradient-to-b from-gray-900 via-black to-gray-900 text-gray-300">
-      {/* Main Footer Content */}
       <div className="max-w-[1200px] mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 mb-4">
               <img src={Logo} alt="REGOL Lubricants" className="h-12" />
@@ -22,7 +20,6 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="text-white text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -49,7 +46,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Products */}
           <div>
             <h3 className="text-white text-lg font-bold mb-4">Our Products</h3>
             <ul className="space-y-2">
@@ -76,7 +72,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h3 className="text-white text-lg font-bold mb-4">Contact Us</h3>
             <div className="space-y-3">
@@ -179,7 +174,6 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom Copyright */}
       <div className="bg-black bg-opacity-50 backdrop-blur-sm py-4">
         <div className="max-w-[1200px] mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm">
           <p>© {new Date().getFullYear()} REGOL Lubricants. All rights reserved.</p>

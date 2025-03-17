@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from 'react-router';
 import { axiosInstance } from '../../service/axios.ts';
 import { useEffect, useState } from 'react';
-import { ProductCardSkeleton } from './peoductCardSkleton.tsx';
 
 export type Product = {
   _id: string;
@@ -31,9 +30,7 @@ export const ProductCardPage: React.FC = () => {
     });
   }, []);
 
-  return productCard === undefined ? (
-    <ProductCardSkeleton />
-  ) : (
+  return (
     <div className="min-h-screen w-full bg-gray-900 text-white p-8">
       <div className="max-w-[1110px] flex flex-col mx-auto bg-gray-800 p-4 rounded-lg shadow-lg">
         <div className="flex flex-col items-center md:items-start gap-6">
@@ -78,7 +75,7 @@ export const ProductCardPage: React.FC = () => {
 
             <div className="mt-10">
               <button
-                className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full shadow-lg transition-all"
+                className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 cursor-pointer rounded-full shadow-lg transition-all"
                 onClick={() => navigate('/products')}>
                 Back
               </button>
