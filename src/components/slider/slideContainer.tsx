@@ -14,7 +14,6 @@ interface SlideContainerProps {
 
 export const SlideContainer: React.FC<SlideContainerProps> = ({ products }) => {
   const navigate = useNavigate();
-  console.log(products[0]['_id']);
 
   return (
     <div className="w-full text-white px-4 md:px-8 lg:px-12 xl:px-28 flex flex-col p-4 min-h-[700px] bg-gradient-to-b from-gray-900 via-black to-gray-900 justify-center py-12">
@@ -64,16 +63,16 @@ export const SlideContainer: React.FC<SlideContainerProps> = ({ products }) => {
               key={product['_id']}
               className="flex w-full max-w-[500px] flex-col items-center justify-center cursor-pointer bg-gray-900 transition-[0.5s] hover:bg-gradient-to-b hover:from-gray-800 hover:to-gray-900 rounded-2xl shadow-lg p-4 md:p-6 lg:p-6">
               <div className="relative w-full overflow-hidden rounded-xl mb-4">
-                <div className="absolute inset-0 bg-blue-500 opacity-10 rounded-xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-10 rounded-xl"></div>
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="mx-auto w-full max-w-[200px] md:max-w-[300px] h-auto rounded-xl mb-4 animate-floating object-contain"
+                  className="mx-auto bg-white w-full p-4 max-w-[200px] md:max-w-[300px] h-auto md:max-h-[300px] h-auto rounded-xl pb-2 animate-floating object-contain"
                 />
               </div>
               <div className="text-center px-2">
                 <h4 className="text-white text-lg sm:text-xl md:text-2xl font-bold mb-2 md:mb-4 truncate">
-                  {product.name}
+                  {product.name.slice(0, product.name.indexOf('0', 8) + 1)}
                 </h4>
                 <p className="text-gray-300 w-full max-w-sm mx-auto text-[14px] sm:text-base md:text-[14px] mb-4 line-clamp-2">
                   {product.description}
