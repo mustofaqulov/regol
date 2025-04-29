@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'https://oil-api-production.up.railway.app/api/oils',
+  baseURL: 'https://reg-oil-api.onrender.com/api/oils/',
   headers: {
     'Content-Type': 'application/json',
   },
